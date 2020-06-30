@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'set'
 
 get '/' do
     erb :index
@@ -12,7 +13,7 @@ post '/check_palindrome/:aText' do
     text = text.downcase
     chars = text.chars
     word = ""
-    magic_words = 0
+    magic_words = Set[]
     i = 0
     while (i < chars.length) do
         # Decidí usar un 'while' en lugar de un 'for' o un 'each' porque me conviene ir iterando
@@ -22,12 +23,15 @@ post '/check_palindrome/:aText' do
            word << chars[i] 
            i += 1
         end
+        # Utilizo un set para no contabilizar las palabras mágicas repetidas.
         if (word == word.reverse) then
-            magic_words += 1
+            magic_words << word
         end
         word = ""
         i += 1
     end
-    print "Palabras magicas: #{magic_words}   "
+    print magic_words
+    print "Palabras magicas: #{magic_words.length()}   "
+    return magic_words.length()
 end
 
