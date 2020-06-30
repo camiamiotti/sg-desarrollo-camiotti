@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<link rel="stylesheet" type="text/css">
+<head>
+  <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+  <meta charset="UTF-8">
+  <title>Detector de palabras mágicas</title>
+</head>
+<body>
+<div class="magical-font">
+    <h1>Subsecretaría de Asuntos Mágicos</h1>
+</div>
+<div class="align">
+<h3><label class="magical-common-font">Detector de palabras mágicas</label> </h3>
+<div class="center">
+<form action="/check_palindrome/:aText" method="post">
+    <label>Texto:</label>
+    <textarea name="post[aText]"></textarea>
+    <br><br>
+    <input type="submit" value="Verificar" id="SubmitBtn">
+    <br><br>
+</form>
+<label class="magical-common-font" id="content"></label>
+</body>
+</html>
+<script>
+
+<script>

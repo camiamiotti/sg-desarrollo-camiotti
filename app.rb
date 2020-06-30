@@ -1,18 +1,11 @@
 require 'sinatra'
 
 get '/' do
-    <<-HTML
-        <form action="/check_palindrome/:aText" method="post">
-            <label>Texto:</label>
-            <textarea name="post[aText]"></textarea>
-            <input type="submit" value="Verificar">
-        </form>
-    HTML
+    erb :index
 end
 
-
 post '/check_palindrome/:aText' do
-    # Recibo parametro del form y lo guardo en str.
+    # Recibo parametro del form y lo guardo en 'text'.
     @post = params[:post]
     text = @post["aText"]
     # Convierto el String a minúscula y luego en Array para manipular mejor los datos.
