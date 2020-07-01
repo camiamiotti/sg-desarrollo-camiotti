@@ -1,0 +1,58 @@
+@font-face {   
+  font-family: HARRYP__;
+  src: url(../fonts/HARRYP__.ttf);
+}
+
+.transparent{
+  background: transparent;
+  border: solid;
+  border-color: black;
+  box-sizing: border-box;
+}
+
+.magical-font{
+  font-size: 24px;
+  font-family: "HARRYP__",cursive;
+}
+
+body {
+  background-image: url("../img/papyrus.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.content {
+  font-family: Georgia, serif; 
+  font-size: 23px;
+  width: 600px;
+  height: 100px;
+}
+
+.center{
+  margin: auto;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.myButton {
+  display:inline-block;
+  border-color: black;
+  cursor:pointer;
+  font-size:19px;
+  padding:11px 76px;
+  margin-bottom: 10px;
+  background-color:transparent;
+  border-radius: 12px;
+}
+
+.myButton:hover {
+  background-color: #555555;
+  border: none;
+}
+
+.myButton:active {
+  position:relative;
+  top:1px;
+}

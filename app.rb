@@ -11,15 +11,13 @@ get '/' do
 end
 
 
-post '/check_palindrome/:aText' do
-    # Recibo parametro del form y lo guardo en str.
-    @post = params[:post]
-    text = @post["aText"]
+get '/check_palindrome' do
+    text = params["aText"]
     # Convierto el String a minúscula y luego en Array para manipular mejor los datos.
     text = text.downcase
     chars = text.chars
     word = ""
-    magic_words = 0
+    magic_words = Set[]
     i = 0
     while (i < chars.length) do
         # Decidí usar un 'while' en lugar de un 'for' o un 'each' porque me conviene ir iterando
@@ -29,12 +27,12 @@ post '/check_palindrome/:aText' do
            word << chars[i] 
            i += 1
         end
-        if (word == word.reverse) then
-            magic_words += 1
+        if (word == word.reverse) and (word != "")  then
+            magic_words << word
         end
         word = ""
         i += 1
     end
-    print "Palabras magicas: #{magic_words}   "
+    return "La cantidad de palabras magicas es:  #{magic_words.length()}" 
 end
 
