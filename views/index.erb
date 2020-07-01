@@ -2,31 +2,50 @@
 <html lang="es">
     <head>
         <link href="<%= url('/css/main.css') %>" rel="stylesheet" type="text/css" />
-        <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>  
         <meta charset="UTF-8">
         <title>Detector de palabras mágicas</title>
     </head>
-<body>
-    <div  class="magical-font">
-        <h1>Subsecretaria de Asuntos Magicos</h1>
-    </div>
-    <div class="align">
-            <div class="center">
-                <h3><label>Detector de palabras mágicas</label></h3>
-                <form action="/check_palindrome/:aText" method="post">
-                    <label>Texto:</label>
+    <div class="magical-font center center-text" >
+    <h1>Subsecretaria de Asuntos Magicos</h1>
+</div>
+    <body class="center">
+    <div class="content center">
+                <h4><label>Detector de palabras mágicas</label></h4>
+                <form method="get" id="checkForm">
+                    <label>Ingrese aquí su texto:</label>
                     <br>
-                    <textarea name="post[aText]" cols="80" rows="30" class="transparent"></textarea>
-                    <br><br>
-                   # <input type="button" value="Verificar" id="SubmitBtn"/>
-                   <input type="submit" value="Verificar" id="SubmitBtn"/>
-                    <br><br>
+                    <textarea name="aText" id="aText" cols="80" rows="20" class="transparent"></textarea><br><br>
                 </form>
-
-            <label class="magical-common-font" id="content"></label>
-</body>
+                <div class="center-text">
+                    <button class = "myButton" onclick="send($('#aText'))" href="javascript:;"/>Verificar</button>
+                    <button class = "myButton" id="ClearBtn"/>Limpiar</button>
+                </div>
+                <div id="result" class="center-text"> </div>
+    </div>
+    </body>
 </html>
 
-<script>
+<script type="text/javascript">
 
-<script>
+jQuery(document).ready(function() {
+    jQuery('#ClearBtn').on('click', function(event) {
+            $("#checkForm")[0].reset();
+            document.getElementById("result").style.display = "none";
+    });
+});
+
+function send(aText){
+        $.ajax({
+                data: aText,
+                url: '/check_palindrome',
+                type: 'get',
+                success:function(response) {
+                    $('#result').html(response);
+                    document.getElementById("result").style.display = "block";
+                }
+            })
+   } 
+};
+    
+</script>     

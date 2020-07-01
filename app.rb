@@ -2,13 +2,11 @@ require 'sinatra'
 require 'set'
 
 get '/' do
-    erb :index
+    erb :index 
 end
 
-post '/check_palindrome/:aText' do
-    # Recibo parametro del form y lo guardo en 'text'.
-    @post = params[:post]
-    text = @post["aText"]
+get '/check_palindrome' do
+    text = params["aText"]
     # Convierto el String a minúscula y luego en Array para manipular mejor los datos.
     text = text.downcase
     chars = text.chars
@@ -24,14 +22,12 @@ post '/check_palindrome/:aText' do
            i += 1
         end
         # Utilizo un set para no contabilizar las palabras mágicas repetidas.
-        if (word == word.reverse) then
+        if (word == word.reverse) and (word != "") then
             magic_words << word
         end
         word = ""
         i += 1
     end
-    print magic_words
-    print "Palabras magicas: #{magic_words.length()}   "
-    return magic_words.length()
+    result = magic_words.length()
+    return "La cantidad de palabras magicas es:  #{result}" 
 end
-

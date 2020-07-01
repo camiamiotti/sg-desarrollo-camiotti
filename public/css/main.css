@@ -10,16 +10,8 @@
   box-sizing: border-box;
 }
 
-.magical-common-font
-{
-  font-weight:bold;
-  font-family: "Lucida Console"; 
-  font-size: 20px; 
-  color:black;
-}
-
 .magical-font{
-  font-size: 22px;
+  font-size: 24px;
   font-family: "HARRYP__",cursive;
 }
 
@@ -29,28 +21,38 @@ body {
   background-repeat: no-repeat;
 }
 
-.center {
+.content {
   font-family: Georgia, serif; 
+  font-size: 23px;
   width: 600px;
   height: 100px;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.center{
+  margin: auto;
+}
+
+.center-text {
+  text-align: center;
 }
 
 .myButton {
-display:inline-block;
-cursor:pointer;
-color:black;
-font-size:17px;
-text-decoration:none;
-padding:11px 76px;
+  display:inline-block;
+  border-color: black;
+  cursor:pointer;
+  font-size:19px;
+  padding:11px 76px;
+  margin-bottom: 10px;
+  background-color:transparent;
+  border-radius: 12px;
 }
 
 .myButton:hover {
-background-color:transparent;
+  background-color: #555555;
+  border: none;
 }
 
 .myButton:active {
-position:relative;
-top:1px;
+  position:relative;
+  top:1px;
 }
