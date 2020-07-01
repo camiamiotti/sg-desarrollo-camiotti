@@ -2,13 +2,7 @@ require 'sinatra'
 require 'set'
 
 get '/' do
-    <<-HTML
-        <form action="/check_palindrome/:aText" method="post">
-            <label>Texto:</label>
-            <textarea name="post[aText]"></textarea>
-            <input type="submit" value="Verificar">
-        </form>
-    HTML
+    erb :index 
 end
 
 
